@@ -28,6 +28,22 @@ def read_all_weather_files(folder_path):
 
                         # print(date, max_temp, min_temp, max_humidity)
 
+                        # Converting empty strings to None t avoid invalid data
+                        if max_temp != "":
+                            max_temp = float(max_temp)
+                        else:
+                            max_temp = None
+
+                        if min_temp != "":
+                            min_temp = float(min_temp)
+                        else:
+                            min_temp = None
+
+                        if max_humidity != "":
+                            max_humidity = float(max_humidity)
+                        else:
+                            max_humidity = None
+
                         # Creating a weather record (dictionary)
                         weather_record = {
                             "year": year,
