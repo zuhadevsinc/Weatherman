@@ -28,7 +28,7 @@ def read_all_weather_files(folder_path):
 
                         # print(date, max_temp, min_temp, max_humidity)
 
-                        # Converting empty strings to None t avoid invalid data
+                        # Converting empty strings to None to avoid invalid data
                         if max_temp != "":
                             max_temp = float(max_temp)
                         else:
