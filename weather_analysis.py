@@ -49,3 +49,39 @@ def find_extreme_values(all_records, target_year):
         print(
             f"Humid: {int(humid_record['humidity'])}% on {month_names[humid_record['month']]} {humid_record['day']}"
         )
+
+
+def calculate_averages(all_records, target_year, target_month):
+
+    month_records = []
+    for r in all_records:
+        if r["year"] == target_year and r["month"] == target_month:
+            month_records.append(r)
+
+    if not month_records:
+        print("No data found for", target_year, "/", target_month)
+        return
+
+    max_temps = []
+    min_temps = []
+    humidities = []
+
+    for r in month_records:
+        if r["max_temp"] is not None and r["max_temp"] != "":
+            max_temps.append(r["max_temp"])
+        if r["min_temp"] is not None and r["min_temp"] != "":
+            min_temps.append(r["min_temp"])
+        if r["humidity"] is not None and r["humidity"] != "":
+            humidities.append(r["humidity"])
+
+    if max_temps:
+        highest_avg = sum(max_temps) / len(max_temps)
+        print("Highest Average:", int(highest_avg), "C")
+
+    if min_temps:
+        lowest_avg = sum(min_temps) / len(min_temps)
+        print("Lowest Average:", int(lowest_avg), "C")
+
+    if humidities:
+        avg_humidity = sum(humidities) / len(humidities)
+        print("Average Humidity:", int(avg_humidity), "%")

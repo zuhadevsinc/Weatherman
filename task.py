@@ -1,7 +1,7 @@
 import os
 import sys
 from file_reader import read_all_weather_files
-from weather_analysis import find_extreme_values
+from weather_analysis import find_extreme_values, calculate_averages
 
 
 def main():
@@ -20,6 +20,14 @@ def main():
     if option == "-e":
         year = int(date_input)
         find_extreme_values(all_records, year)
+    elif option == "-a":
+
+        year_month = date_input.split("/")
+        year = int(year_month[0])
+        month = int(year_month[1])
+        calculate_averages(all_records, year, month)
+    else:
+        print("Invalid option. Use -e for extreme values or -a for averages.")
 
 
 if __name__ == "__main__":
