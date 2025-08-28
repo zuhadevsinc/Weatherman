@@ -44,7 +44,7 @@ def read_all_weather_files(folder_path):
                         else:
                             max_humidity = None
 
-                        # Creating a weather record (dictionary)
+                        # Creating a weather record
                         weather_record = {
                             "year": year,
                             "month": month,
